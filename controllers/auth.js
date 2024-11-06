@@ -3,6 +3,11 @@ const User = require('../models/users');
 const { generateAccessToken } = require('../utils/jwt');
 const saltRounds = 10;
 
+const testAPI = (req, res) => {
+    const { firstName, lastName, email, password } = req.body
+    return res.status(200).json({details: {firstName, lastName, email, password} ,message: "API is working!"})
+}
+
 const register = async (req, res) => {
     const { firstName, lastName, email, password } = req.body
     if (!firstName || !email || !password) {
@@ -67,5 +72,6 @@ const login = async (req, res) => {
 
 module.exports = {
     register,
-    login
+    login,
+    testAPI
 }
