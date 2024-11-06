@@ -4,14 +4,14 @@ const { generateAccessToken } = require('../utils/jwt');
 const saltRounds = 10;
 
 const register = async (req, res) => {
-    const { firstname, lastname, email, password } = req.body
-    if (!firstname || !email || !password) {
+    const { firstName, lastName, email, password } = req.body
+    if (!firstName || !email || !password) {
         return res.status(400).json({ msg: 'Please enter all fields' })
     }
 
     const hashed_password = await bcrypt.hash(password, saltRounds)
     const newUser = {
-        name: firstname+" "+lastname,
+        name: firstName+" "+lastName,
         email,
         password: hashed_password
     }
