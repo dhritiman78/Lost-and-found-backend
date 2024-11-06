@@ -8,7 +8,7 @@ app.use(express.json());
 connectDB()
 
 app.get('/',(req, res)=>{
-    res.status(200).send("Welcome to lost and found!"+a)
+    res.status(200).send("Welcome to lost and found!")
 })
 
 app.use('/api/auth', authRoutes)
